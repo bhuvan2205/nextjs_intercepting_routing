@@ -3,6 +3,7 @@ import "./globals.css";
 import { Poppins as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
+import Header from "@/components/Header";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -17,9 +18,10 @@ export const metadata: Metadata = {
 
 type RootLayoutProps = Readonly<{
   children: ReactNode;
+  modal: ReactNode;
 }>;
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({ children, modal }: RootLayoutProps) {
   return (
     <html lang="en">
       <body
@@ -28,7 +30,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
           fontSans.variable
         )}
       >
-        {children}
+        <div className="container mx-auto">
+          <Header />
+          {modal}
+          {children}
+        </div>
       </body>
     </html>
   );
