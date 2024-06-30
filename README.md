@@ -5,6 +5,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, run the development server:
 
 ```bash
+json-server data/db.json --watch --port 4000
+# and
 npm run dev
 # or
 yarn dev
